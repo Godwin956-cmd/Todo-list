@@ -1,31 +1,199 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  font-size: 15pt;
+  background-color: #EEEEEE;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.create-task-section {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 60%;
+  height: 3rem;
+  padding: 5px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 20px auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.create-task-section .create-btn {
+  height: 3rem;
+}
+.task-popup-section {
+  border: 3px solid white;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  margin: 20px 18px;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 50px;
+  color: rgba(0, 0, 0, 1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  
+}
+.task-popup-section .popup-close-btn {
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  bottom: 97%;
+  left: 95%;
+  margin: 0;
+  background: #FFFFFF;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+.task-popup-section label {
+  font-size: 16pt;
+  color: #000000;
+}
+#popupTitle, #popupAbout, #timeLimit {
+  border: none;
+  background-color: rgba(245, 245, 245, 1);
+  width: 10rem;
+  height: 2vh;
+  padding: 10px;
+}
+.time {
+  height: 2.5rem;
+  width: 8rem;
+  padding: 20px;
+}
+.rate {
+  padding: 50px;
+  height: 3rem;
+  width: 6rem;
+  margin: 5px 0;
+  border-radius: none;
+  font-size: 11pt;
+}
+.popup-create-task-btn {
+  width: 10rem;
+  height: 50px;
+}
+.popup-create-task-btn.active {
+  width: 10rem;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgba(0, 146, 255, 1);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.high {
+  background-color: #FF0000; 
+  color: #FFFFFF; 
+}
+.medium {
+  background-color: #F8FF00;
+  color: #000000;
+}
+.low {
+  background-color: #00FF07;
+  color: #000000;
+}
+.card-list-background {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; 
+}
+.card-list-background.deleting {
+  transform: translateX(-100%); 
+  opacity: 0; 
+}
+.card-list {
+  background-color: white;
+  width: 20rem;
+  padding: 5px 30px;
+  margin: 5px auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 1px #AEAEAE;
+}
+.card-list div {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.card-list div p {
+  padding: 8px;
+}
+.card-list div .rating {
+  padding: 12px;
+  border-radius: 10px;
 }
 
-.heart {
-  color: #ff0000;
+div .mood p {
+  border-radius: 10px;
+}
+.mood {
+  display: flex;
+  gap: 5px;
+  color: #2600FF;
 }
 
-.small {
-  font-size: 0.75rem;
+
+.category-work {
+  background-color: #2196F3; 
+  color: white;
+}
+.category-personal {
+  background-color: #FF9800; 
+  color: white;
+}
+.category-study {
+  background-color: #9C27B0;
+  color: white;
+}
+.category-hobbies {
+  background-color: #00BCD4;
+  color: white;
+}
+.category-health {
+  background-color: #4CAF50; 
+  color: white;
+}
+.category-social {
+  background-color: #E91E63;
+  color: white;
+}
+.category-development {
+  background-color: #607D8B; 
+  color: white;
+}
+.category-finance {
+  background-color: #3F51B5; 
+  color: white;
+}
+.delete-btn{
+  width: 70px;
+  background-color: hsla(360, 100%, 50%, 1);
+  padding: 20px;
+  border-radius: 10px;
+}
+.delete-btn {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 50%;
+  color: whitesmoke;
+  background-color: hsl(10, 90%, 50%);
+  transition: background-color 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn svg{
+  height: 40px;
+  width: 40px;
+}
+.delete-btn:hover{
+  background-color: hsl(10, 90%, 40%);
+}
+
+.creation-date{
+  color: rgba(123, 123, 123, 0.67);
 }
