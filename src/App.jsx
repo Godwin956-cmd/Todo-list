@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import ReactGA from "react-ga4";
 
 const NavBar = () => {
   const [isOnDisplay, setisOnDisplay]= useState(false);
@@ -87,7 +88,12 @@ const [limitValue, setlimitValue] = useState("");
       category: selectedCategory,
       categoryClass: selectedCategoryClass,
       limit: limitValue,
-    };
+      };
+      ReactGA.event ( {
+        category: "Task Management", 
+        action: "Task Created",
+        label: `Task Title: ${titleValue}`,
+    });
     settaskCards((prevTask) => [...prevTask, newTask]);
     settitleValue("");
     setaboutValue("");
@@ -103,11 +109,15 @@ const [limitValue, setlimitValue] = useState("");
       setDeletingTasks((prev) => prev.filter((taskId) => taskId !== id));
     }, 500);
   };
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search
+    }); }, []);
   
   return(
     <>
       <section className="create-task-section">
-        <button className="create-btn" onClick={ () =>{setisOnDisplay(!isOnDisplay); settitleValue(""); setaboutValue("")}}>➕ Create new task</button>
+        <button className="create-btn" onClick={ () =>{setisOnDisplay(!isOnDisplay); settitleValue(""); setaboutValue(""); ReactGA.event ( {
+category: "Task Management", action: "Clicked Create New Task Button", label: "Open TaskCreation Popup",})}}>➕ Create new task</button>
       </section>
       <section className="task-popup-section" style={{display: isOnDisplay ? "flex" : "none"}}>
         <button onClick={() => {setisOnDisplay(false) }} id="popUpCloseBtn" className="popup-close-btn" >❌</button>

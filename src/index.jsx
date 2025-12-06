@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import ReactGA from 'react-ga4';
 import NavBar from './App';
 import reportWebVitals from './reportWebVitals';
 
+ReactGA.initialize('G-09EXNNBGJZ');
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
